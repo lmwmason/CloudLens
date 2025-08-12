@@ -57,11 +57,4 @@ This project is licensed under the MIT License — see the [LICENSE](LICENSE) fi
 
 ---
 
-## Future Plans
-- Improve cloud classification accuracy with more training data.
-- Add air quality index (AQI) analysis.
-- Support AR mode for real-time cloud type overlay.
-
----
-
 CloudLens — See the sky through the lens of science.
