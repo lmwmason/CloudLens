@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'takePicture.dart';
 
-void main() {
+
+Future<void> main() async {
+  await dotenv.load(fileName: '.env');
   runApp(const MyApp());
 }
 
@@ -28,37 +31,36 @@ class MyHomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('CloudLens', style: TextStyle(fontFamily: 'sbAgroB')),
-        backgroundColor: const Color.fromARGB(255, 143, 211, 145),
+        backgroundColor: const Color.fromARGB(255, 0, 255, 106),
       ),
-      body: Center(
-        child: GestureDetector(
-          onTap: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (_) => const Takepicture(),
-              ),
-            );
-          },
-          child: Container(
-            width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.height,
-            decoration: const BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage('images/main_bg.jpg'),
-                fit: BoxFit.cover,
-              ),
+      body: GestureDetector(
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (_) => const Takepicture(),
             ),
-            child: const Center(
-              child: Text(
-                'Welcome to Cloud Lens\n\n\nClick to start',
-                style: TextStyle(
-                    color: Color.fromARGB(255, 255, 255, 255),
-                    fontSize: 20,
-                    fontFamily: 'sbAgroM',
-                    fontWeight: FontWeight.bold),
-                textAlign: TextAlign.center,
-              ),
+          );
+        },
+        child: Container(
+          width: MediaQuery.of(context).size.width,
+          height: MediaQuery.of(context).size.height,
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+              image: NetworkImage(
+                  "https://raw.githubusercontent.com/lmwmason/CloudLens/refs/heads/main/cloudlens/images/main_bg.jpg"),
+              fit: BoxFit.cover,
+            ),
+          ),
+          child: const Center(
+            child: Text(
+              'Welcome to Cloud Lens\n\n\nClick to start',
+              style: TextStyle(
+                  color: Color.fromARGB(255, 208, 0, 255),
+                  fontSize: 20,
+                  fontFamily: 'sbAgroM',
+                  fontWeight: FontWeight.bold),
+              textAlign: TextAlign.center,
             ),
           ),
         ),

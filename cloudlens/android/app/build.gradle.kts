@@ -7,16 +7,17 @@ plugins {
 
 android {
     namespace = "com.example.cloudlens"
-    compileSdk = flutter.compileSdkVersion
-    ndkVersion = flutter.ndkVersion
+    // flutter.compileSdkVersion.toString() 대신 직접 문자열로 값을 지정합니다.
+    compileSdkVersion = "android-36" // 이 부분을 수정합니다.
+    ndkVersion = "27.0.12077973"
 
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
     }
 
     kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_11.toString()
+        jvmTarget = "1.8"
     }
 
     defaultConfig {
@@ -24,8 +25,8 @@ android {
         applicationId = "com.example.cloudlens"
         // You can update the following values to match your application needs.
         // For more information, see: https://flutter.dev/to/review-gradle-config.
-        minSdk = flutter.minSdkVersion
-        targetSdk = flutter.targetSdkVersion
+        minSdkVersion(flutter.minSdkVersion)
+        targetSdkVersion(flutter.targetSdkVersion)
         versionCode = flutter.versionCode
         versionName = flutter.versionName
     }
